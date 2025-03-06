@@ -27,7 +27,7 @@ const responseSchema = new mongoose.Schema({
   message: String,
 });
 
-const Response = mongoose.model("Response", responseSchema);
+const Response = mongoose.model("jidnyasa", responseSchema);
 
 app.get("/", (req, res) => {
   res.render("index");
@@ -49,7 +49,7 @@ app.post("/submit", async (req, res) => {
 app.get("/responses", async (req, res) => {
   try {
     const responses = await Response.find({});
-    res.render("responses", { responses });
+    res.render("response", { responses });
   } catch (err) {
     res.status(500).send("Error retrieving responses.");
   }
